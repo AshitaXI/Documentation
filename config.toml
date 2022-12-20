@@ -1,0 +1,61 @@
+baseURL = 'http://docs.ashitaxi.com/'
+languageCode = 'en-us'
+title = 'Ashita v4 Documentation'
+theme = 'hugo-theme-learn'
+enableEmoji = true
+
+[markup]
+  [markup.highlight]
+    lineNos = true
+    lineNumbersInTable = false
+    tabWidth = 4
+
+[markup.goldmark.parser.attribute]
+block = true
+
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+
+[params]
+editURL = "https://github.com/AshitaXI/Documentation/edit/main/content/"
+author = "atom0s"
+description = "Documentation website for the Ashita v4 project."
+showVisitedLinks = true
+disableSearch = false
+disableAssetsBusting = false
+disableInlineCopyToClipBoard = true
+disableShortcutsTitle = false
+disableLandingPageButton = false
+disableLanguageSwitchingButton = true
+disableBreadcrumb = false
+disableMermaid = true
+customMermaidURL = "https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"
+disableNextPrev = true
+ordersectionsby = "weight"
+themeVariant = "ashita"
+custom_css = []
+titleSeparator = "•"
+
+[[menu.shortcuts]]
+name = "<i class='fa-brands fa-discord'></i> Discord Chat"
+identifier = "discord"
+url = "https://discord.gg/Ashita"
+weight = 10
+
+[[menu.shortcuts]]
+name = "<i class='fab fa-fw fa-github'></i> Documentation Repo"
+identifier = "docsrepo"
+url = "https://github.com/AshitaXI/Documentation"
+weight = 11
+
+[[menu.shortcuts]]
+name = "<i class='fab fa-fw fa-github'></i> Releases Repo"
+identifier = "rlsrepo"
+url = "https://github.com/AshitaXI/Ashita-v4beta"
+weight = 12
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-fw fa-bullhorn'></i> Credits"
+identifier = "credits"
+url = "/credits"
+weight = 13
