@@ -1,0 +1,17 @@
+{{ $_hugo_config := `{ "version": 1 }` }}
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-angles-right';});});">
+        <i style="font-size:x-small;" class="fas fa-angles-right"></i>
+        <span style="font-style: italic; font-weight: bold;">
+        {{$expandMessage := T "Expand-title"}}
+    	{{ if .IsNamedParams }}
+    	{{.Get "default" | default $expandMessage}}
+    	{{else}}
+    	{{.Get 0 | default $expandMessage}}
+    	{{end}}
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        {{.Inner | safeHTML}}
+    </div>
+</div>

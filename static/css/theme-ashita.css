@@ -1,0 +1,112 @@
+/**
+ * Ashita custom theme settings.
+ */
+
+:root{
+
+    --MAIN_THEME_COLOR1: #D45447;
+    --MAIN_THEME_COLOR2: #CC5746;
+    --MAIN_THEME_COLOR3: #ED6A56;
+    --MAIN_THEME_COLOR4: #AF4D44;
+    --MAIN_THEME_BACKGROUND_COLOR: #F4F4F4;
+    --MAIN_THEME_BORDER_COLOR: var(--MAIN_THEME_COLOR4);
+
+    /* Homelinks Block Settings */
+
+    --HOMELINKS_BACKGROUND_COLOR: var(--MAIN_THEME_COLOR4);
+
+    /* Sidebar Settings */
+
+    --SIDEBAR_BACKGROUND_COLOR: #282C37;
+    --SIDEBAR_LINK_COLOR: #FEFEFE;
+}
+
+/**
+ * Ashita custom theme overrides.
+ */
+
+body {
+    background: var(--MAIN_THEME_BACKGROUND_COLOR);
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-font-smoothing: antialiased !important;
+    text-rendering: optimizelegibility !important;
+    hyphens: none
+}
+
+#header-wrapper {
+    background: var(--MAIN_THEME_COLOR1);
+    color: #fff;
+    text-align: center;
+    border-bottom: 4px solid var(--MAIN_THEME_BORDER_COLOR);
+    padding: 1rem;
+}
+
+#sidebar {
+    background-color: var(--SIDEBAR_BACKGROUND_COLOR);
+}
+
+#sidebar a {
+    color: var(--SIDEBAR_LINK_COLOR) !important;
+}
+
+#homelinks {
+    background-color: var(--HOMELINKS_BACKGROUND_COLOR);
+    color: #fff;
+    padding: 7px 0;
+    border-bottom: 4px solid var(--MAIN_THEME_BORDER_COLOR);
+}
+
+.searchbox {
+    background-color: var(--MAIN_THEME_COLOR3) !important;
+    border: 1px solid var(--MAIN_THEME_BORDER_COLOR) !important;
+}
+
+hr {
+    border-bottom: 2px solid var(--MAIN_THEME_BORDER_COLOR);
+}
+
+h3 {
+    border-bottom: solid 1px var(--MAIN_THEME_BORDER_COLOR);
+}
+
+code {
+    border-radius: 0 !important;
+}
+
+pre {
+    padding: 2px !important;
+    background: var(--MAIN_THEME_BORDER_COLOR) !important;
+    border-radius: 0px !important;
+    margin: 1rem 0 !important;
+}
+
+table {
+    border: 1px solid #CCCCCC;
+    table-layout: auto;
+}
+
+th {
+    background: #DDD;
+    padding: 0.5rem;
+}
+
+td {
+    padding: 0.5rem;
+    border: 1px solid #CCCCCC;
+}
+
+ul, ol {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.center {
+    text-align: center;
+}
+
+.slim-img img {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+}
