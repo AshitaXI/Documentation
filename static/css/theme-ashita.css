@@ -42,6 +42,7 @@
  */
 
 body {
+    background-color: #F4F4F4;
     color: var(--MAIN-TEXT-color) !important;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased !important;
