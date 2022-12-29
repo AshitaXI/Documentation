@@ -17,7 +17,7 @@ title: "Index"
 
 Welcome to the **Ashita** project documentation website. This site is used to help users of **Ashita** get familiar with its features, commands, as well as help developers further extend the project via `plugins` and `addons`. Please use the sidebar to the left to navigate through the various pages of information, or, use the search bar at the top left to look for a specific bit of information.
 
-### What is `Ashita`?
+## What is `Ashita`?
 
 **Ashita** is a free feature-rich third-party enhancement/modification for the MMORPG, Final Fantasy XI.
 
@@ -29,11 +29,11 @@ _(See the Features page for a full list of **Ashita's** features.)_
 
 Players can also enjoy additional features provided by `plugins` and `addons` _(via the Addons plugin)_ which can be loaded within **Ashita**, directly in-game.
 
-### Ashita's History
+## Ashita's History
 
 **Ashita** was originally created, by RZN, on Aug 19, 2011 and was originally named ‘FFACE 5’. The idea was to replace the FFACE project with a full windowing ability and feature set that would replace the traditional FFACE.dll.
 
-#### Ashita v1
+### Ashita v1
 
 Later, due to major design changes, adjustments and alterations the project was instead separated from the FFACE project and was given its name **Ashita** on Feb. 20, 2012.
 
@@ -41,7 +41,7 @@ Around version 1.0.0.10 of **Ashita**, atom0s had joined the project as a plugin
 
 **Ashita** underwent lots of changes and improvements and partial rewrites of various parts of the core. Soon after, the project had grown in popularity and it saw many new third-party plugins from various players alike.
 
-#### Ashita v2
+### Ashita v2
 
 Due to limitations in how **Ashita** was currently coded, it was decided that a rewrite would be in the best interest of **Ashita**. atom0s began development on **Ashita** v2 shortly after the discussions.
 
@@ -53,7 +53,7 @@ Soon after, **Ashita** v2 was beginning beta testing and had its full release in
   * New font object system rewrite to make font objects even more customizable.
   * And much much more!
 
-#### Ashita v3
+### Ashita v3
 
 **Ashita** v3 was developed to better extend some of the functionality of callbacks to plugins from the core. At the time, v2 had some limitations on what could be done with certain events and it limited the abilities of some major plugins. v3 was discussed between some of the core developers on how to better extend these events and further improve the plugin system. Once some solid ideas were made, work on v3 began. **Ashita** v3 was started around October 2016 with the hopes to build out an even more enjoyable platform for players.
 
@@ -73,7 +73,7 @@ https://forums.ashitaxi.com/viewtopic.php?f=15&t=66
 
 _**Ashita** v3 is considered end of life and feature-complete as of 2022._
 
-#### Ashita v4
+### Ashita v4
 
 During the year 2018, internal discussions of how to improve parts of **Ashita** began. These discussions covered various aspects of things that were seen as shortcomings or means to better the project as a whole to add new features. While some discussions did turn into features added to the current v3 project, more larger scale changes or ideas were kept on hold for the potential future v4 project.
 
