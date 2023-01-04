@@ -26,7 +26,7 @@ You can download a full snapshot of the current beta release here: https://githu
 
 {{% notice warning %}}
 We **DO NOT** recommend installing **Ashita**, or any third-party tool, inside of any system folders.\
-You should not install third-party tools into `Program Files` or `Program Files (x86)`!
+You **SHOULD NOT** install third-party tools into `Program Files` or `Program Files (x86)`!
 {{% /notice %}}
 
 Once downloaded, extract the zip contents to a new folder, we recommend `C:\Ashita\` to avoid issues with protected/system folders.
