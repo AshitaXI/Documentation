@@ -86,7 +86,7 @@ hr {
     border-bottom: 2px solid var(--MAIN-BORDER-color);
 }
 
-a {
+#body a {
     color: var(--MAIN-LINK-color);
     font-weight: 400;
 }
