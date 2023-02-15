@@ -1,6 +1,6 @@
 ---
-title: "In-Game Commands"
-weight: 40
+title: "Commands"
+weight: 3
 disableToc: false
 chapter: false
 ---
@@ -8,25 +8,18 @@ chapter: false
 ![ashita](/images/ashita.png?width=64px)
 {.slim-img}
 
-**Ashita** comes with several built-in commands which are used to interact with and configure it.\
-This page covers the included commands and how to use them.
-
-{{% notice warning %}}
-This page does not contain commands implemented via any addons or plugins. Only commands built into the core are listed on this page.
-{{% /notice %}}
-
 ## Command Syntax
 
-Commands implemented within **Ashita** should (mostly) all follow the below format for their arguments. This helps keep usage unified across all commands. It also makes documentation easier to follow when all commands make use of the same format.
+Commands implemented within **Ashita** all follow the below format for their arguments. This helps keep usage unified across all commands. It also makes documentation easier to follow when all commands make use of the same format.
 
 | Syntax | Description |
-| --- | --- |
-| `text`        | Required; entered as shown. |
-| `<text>`      | Required argument. |
-| `<text...>`   | Required argument. (Multiple arguments accepted.) |
-| `(text\|text)` | Required, one of. |
-| `[text]`      | Optional argument. |
-| `[text...]`   | Optional argument. (Multiple arguments accepted.) |
+| ---: | --- |
+| `text`        | _Required; entered as shown._ |
+| `<text>`      | _Required argument._ |
+| `<text...>`   | _Required argument. (Multiple arguments accepted.)_ |
+| `(text\|text)` | _Required, one of._ |
+| `[text]`      | _Optional argument._ |
+| `[text...]`   | _Optional argument. (Multiple arguments accepted.)_ |
 
 _**Note:** Arguments surrounded with `<` and `>` are considered positional, meaning their order matters._
 
@@ -132,7 +125,7 @@ This command is not intended to be used outside of scripts! It will freeze the g
     - _Adds an alias with the given trigger._
   - `/alias clear`
     - _Clears the list of registered aliases._
-  - `/alias (del | delete)`
+  - `/alias (del | delete) <trigger>`
     - _Deletes an alias._
   - `/alias list`
     - _Lists the current registered aliases._

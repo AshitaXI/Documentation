@@ -159,6 +159,10 @@ ol {
     border: 1px solid var(--MENU-SEARCH-BOX-color);
 }
 
+#sidebar ul.topics ul {
+    padding-bottom: 0.4rem !important;
+}
+
 #sidebar ul.topics>li.parent,
 #sidebar ul.topics>li.active {
     background: var(--MENU-SECTIONS-ACTIVE-BG-color);

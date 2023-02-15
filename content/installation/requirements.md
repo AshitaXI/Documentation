@@ -1,6 +1,6 @@
 ---
 title: "System Requirements"
-weight: 20
+weight: 1
 disableToc: false
 chapter: false
 ---
@@ -28,6 +28,23 @@ While **Ashita** may work on other operating systems not listed above, we do not
 Due to how changes can happen with the game client, not all client versions are supported. **Ashita** v4 targets the latest retail client, but can work with older clients.
 
 The current release of **Ashita** v4 requires, at minimum, the following client version _(or newer)_ in order to fully work properly: `Nov. 10, 2021`
+
+## System Requirements
+
+Your system should meet the following recommended requirements (as of January 2020):
+
+|| Recommended Requirements |
+| ---: | --- |
+| **Operating System**    | Windows® 8.1 / 10* |
+| **CPU**                 | Intel® Core™ i3 2.4GHz (or higher) |
+| **Memory**              | 2GB or more |
+| **Graphics Card**       | NVIDIA® GeForce® GT 740 (or higher) _(Driver must be compatible with DirectX® 8.1.)_ |
+| **Sound Card**          | DirectX®8.1 compatible sound card |
+| **HDD/SSD**             | 15GB or more free space. |
+| **Internet Connection** | Continuous internet connection required. |
+| **Other**               | Keyboard, mouse, Gamepad, DirectX®8.1 _(Must have DirectX® End-User Runtime installed.)_ |
+
+_The game client should still work on Windows 7 with the latest service packs installed, however it is not directly supported by SE. Certain Windows 10 updates may cause the game client to work improperly._
 
 ## Game Requirements
 

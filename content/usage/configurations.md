@@ -1,7 +1,8 @@
 ---
-menuTitle: "Configurations"
-title: "Configuring Ashita"
+title: "Configurations"
 weight: 1
+disableToc: false
+chapter: false
 ---
 
 ![ashita](/images/ashita.png?width=64px)
@@ -57,6 +58,10 @@ You should **NEVER** alter the `ashita.xxx.ini` settings files! These will be ov
 This folder contains the boot configurations/profiles used to launch the game. Players can create a single file and share it between all characters they wish to play, or you can create individual profiles for each character. These files hold the various configurations for **Ashita** settings as well as the game registry configuration overrides.
 
 _You can find more information about profile configurations below._
+
+{{% notice warning %}}
+It is **HIGHLY** recommended that you **DO NOT** edit or use the included boot configuration files. Instead, you should make a copy of the one you wish to use, rename it, and edit that instead. This will avoid accidentally having your configurations overwritten!
+{{% /notice %}}
 
 ### Folder: `/config/sandbox/`
 
@@ -502,34 +507,34 @@ The `padsin000` value is a comma-separated list of numbers. There are 27 options
 The 27 slots are in the following order:
 
 | Index | Action Description |
-| --- | --- |
-| 0     | Toggle auto-run. |
-| 1     | Toggle CTRL macro bar display. |
-| 2     | Toggle first/third person view. |
-| 3     | Toggle ALT macro bar display. |
-| 4     | Toggle /heal, lock target. |
-| 5     | Cancel. |
-| 6     | Main menu. |
-| 7     | Select, Confirm selection. |
-| 8     | Select active window. |
-| 9     | Toggle menu/window visibility. |
-| 10    | Menu navigation with movement thumbstick while held. |
-| 11    | Move camera with movement thumbstick while held. |
-| 12    | Toggle logout window. |
-| 13    | Player movement. (up) |
-| 14    | Player movement. (down) |
-| 15    | Player movement. (left) |
-| 16    | Player movement. (right) |
-| 17    | Camera movement. (up) |
-| 18    | Camera movement. (down) |
-| 19    | Camera movement. (left) |
-| 20    | Camera movement. (right) |
-| 21    | Menu movement. (up) _(Also handles targeting.)_ |
-| 22    | Menu movement. (down) _(Also handles targeting.)_ |
-| 23    | Menu movement. (left) _(Also handles targeting.)_ |
-| 24    | Menu movement. (right) _(Also handles targeting.)_ |
-| 25    | Take screenshot. _(Menu/windows must be hidden.)_ |
-| 26    | Toggle use of movement, menu and camera controls. |
+| ---: | --- |
+| `0`   | Toggle auto-run. |
+| `1`   | Toggle CTRL macro bar display. |
+| `2`   | Toggle first/third person view. |
+| `3`   | Toggle ALT macro bar display. |
+| `4`   | Toggle /heal, lock target. |
+| `5`   | Cancel. |
+| `6`   | Main menu. |
+| `7`   | Select, Confirm selection. |
+| `8`   | Select active window. |
+| `9`   | Toggle menu/window visibility. |
+| `10`  | Menu navigation with movement thumbstick while held. |
+| `11`  | Move camera with movement thumbstick while held. |
+| `12`  | Toggle logout window. |
+| `13`  | Player movement. (up) |
+| `14`  | Player movement. (down) |
+| `15`  | Player movement. (left) |
+| `16`  | Player movement. (right) |
+| `17`  | Camera movement. (up) |
+| `18`  | Camera movement. (down) |
+| `19`  | Camera movement. (left) |
+| `20`  | Camera movement. (right) |
+| `21`  | Menu movement. (up) _(Also handles targeting.)_ |
+| `22`  | Menu movement. (down) _(Also handles targeting.)_ |
+| `23`  | Menu movement. (left) _(Also handles targeting.)_ |
+| `24`  | Menu movement. (right) _(Also handles targeting.)_ |
+| `25`  | Take screenshot. _(Menu/windows must be hidden.)_ |
+| `26`  | Toggle use of movement, menu and camera controls. |
 
 #### DirectInput Button Mappings
 
