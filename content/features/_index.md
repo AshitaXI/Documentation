@@ -12,7 +12,7 @@ chapter: false
 
 {{% notice note %}}
 This page will cover the various features included in **Ashita**, however it does not include built-in commands.\
-Please refer to the [Commands](/commands/) documentation for more details about those.
+Please refer to the [Commands](/usage/commands/) documentation for more details about those.
 {{% /notice %}}
 
 {{% notice info %}}
@@ -353,7 +353,7 @@ While these files make it possible to keep pointers and offsets proper, it is no
 
 **Ashita** comes equipped with several useful built-in functionality, mainly focused on controlling the internal aspects of the hook. _Additional commands are generally implemented via a plugin or an addon._
 
-Please see the full [Commands](/commands/) documentation for more information on the built-in commands.
+Please see the full [Commands](/usage/commands/) documentation for more information on the built-in commands.
 
 ## Custom Scripting (Extended Macros)
 
