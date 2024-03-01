@@ -114,68 +114,104 @@ Contains configuration settings used with the boot loader and initial startup of
     - Sets the script arguments to pass to the 'script' (if set) above when it's executed.
     - _This can be useful if you share a script between multiple characters, but want to use specific values for token replacements. Such as binds/aliases that use the profiles specific character name._
 
-### Section: `[ashita.language]`
+### Section: `[ashita.fonts]`
 
-Contains configuration settings used to determine which language data is used for defaults.
+Contains configuration settings used with **Ashita**'s internal Direct3D based font system.
 
-  - `playonline` - _(number)_
-    - **Default:** 2
-    - Sets the default PlayOnline language the launcher will use when trying to launch retail and no direct boot file was given.
-    - _If set to 0, **Ashita** will default to English._
-    - Valid values are: `0 = Default`, `1 = Japanese`, `2 = English`, `3 = European`
-  - `ashita` - _(number)_
-    - **Default:** 2
-    - Sets the default language used with the internal ResourceManager string data.
-    - _If set to 0 or 3, **Ashita** will default to English. (SE no longer translates strings to European.)_
-    - Valid values are: `0 = Default`, `1 = Japanese`, `2 = English`, `3 = European`
+  - `d3d8.disable_scaling` - _(boolean)_
+    - **Default:** 0
+    - Sets if **Ashita** will disable scaling the Direct3D font objects by default.
+    - _If false, **Ashita** attempt to scale font objects based on the systems DPI setting. Otherwise, **Ashita** will default to its old behavior of an enforced scaling size._
+  - `d3d8.family` - _(string)_
+    - **Default:** Arial
+    - Sets the default font family (face) that is used when creating a font object but not specifying one.
+  - `d3d8.height` - _(number)_
+    - **Default:** 10
+    - Sets the default font height that is used when creating a font but not specifying one.
 
-### Section: `[ashita.logging]`
+### Section: `[ashita.imgui.fonts]`
 
-Contains configuration settings used for **Ashita**'s debugging/logging features.
+Contains configuration settings used to change the default fonts used with **Ashita**'s implementation of ImGui.
 
-  - `level` - _(number)_
-    - **Default:** 5
-    - Sets the level of debugging information **Ashita** will output to its log files.
-    - Valid values are: `0 = None`, `1 = Critical`, `2 = Error`, `3 = Warn`, `4 = Info`, `5 = Debug`
-  - `crashdumps` - _(number)_
-    - **Default:** 1
-    - Sets if **Ashita** should create crash dumps automatically when a critical error occurs.
+**Ashita** makes use of the ImGui project to allow for custom UI elements ot be rendered into FFXI's scene. By default, ImGui would use a pixel font called `ProggyClean`. **Ashita** has replaced this default font with a new one called `Agave` as the original does not scale well and is assumed to be used at a fixed small font size. To allow even more customization, **Ashita** uses this settings block to allow users to change the default settings of the new `Agave` font or to completely override the font(s) Ashita loads by default for ImGui.
 
-### Section: `[ashita.taskpool]`
+When overriding the default font(s) entirely, this settings block will expects a specific format to be followed. The format for the section should look like this:
 
-Contains configuration settings used with **Ashita**'s internal task queue system.
+```ini
+[ashita.imgui.fonts]
+font0.family    = Arial.ttf
+font0.size      = 18
+font0.is_jp     = false
+```
 
-  - `threadcount` - _(number)_
-    - **Default**: -1
-    - Sets the maximum number of threads the task queue will attempt to use.
-    - _If set to 0 or lower, the internal task queue will query the system for the available number of logical cores and determine the best number of threads to use. It is recommended to leave this as -1 and let the system determine the best number itself._
+You can define multiple fonts at once by changing the number that postfixes the `font` part of the settings names. _(ie. `font0`, `font1`, `font2`, etc.)_ The `size` and `is_jp` values are optional for each font entry, only the `family` entry must be defined. **Ashita** will walk this block indefinitely until it does not find a valid `font#.family` entry for the next expected index. _(This means that if you define a `font0.family` and a `font2.family`, the `font2` entry will not be loaded as there was no `font1` found.)_
 
-### Section: `[ashita.resources]`
+The below information explains each of these settings options when overriding the default font. _(**Note:** The `#` character in the settings names is used to note where you would place the current number index of the font you are editing, starting with 0.)_
 
-Contains configuration settings used with **Ashita**'s custom resource data override configuration files.
+**font#.family** - _(string)_
 
-  - `offsets.use_overrides` - _(boolean)_
-    - **Default:** 1
-    - Sets if **Ashita** should load and merge in the custom overrides within the `custom.offsets.ini` configuration file.
-  - `pointers.use_overrides` - _(boolean)_
-    - **Default:** 1
-    - Sets if **Ashita** should load and merge in the custom overrides within the `custom.pointers.ini` configuration file.
-  - `resources.use_overrides` - _(boolean)_
-    - **Default:** 1
-    - Sets if **Ashita** should load and merge in the custom overrides within the `custom.datmap.ini` configuration file.
+Defines the font family file name. **Ashita** will now load custom fonts from a new predefined location of:
+  - `<Ashita Path>/resources/fonts/`
 
-### Section: `[ashita.window.startpos]`
+This value should be the actual file name as it is on disk within this folder. _(ImGui **does not** directly support loading already installed system fonts. You must place the font file you wish to use in this folder!)_
 
-Contains configuration settings used to set the startup position of the game window.
+**font#.size** - _(number|array)_
 
-  - `x` - _(number)_
-    - **Default:** -1
-    - Sets the X screen position to start the game window at.
-    - _If set to -1, will use the center X position of the screen._
-  - `y` - _(number)_
-    - **Default:** -1
-    - Sets the Y screen position to start the game window at.
-    - _If set to -1, will use the center Y position of the screen._
+Defines the font size(s) that you wish to use with this font. (This value is optional.)
+
+This value can be defined in the following manners:
+
+  - **Blank** - If the value is left blank, or not given at all, then the system will default to the font size of `18`.
+  - **Single** - If the value is a single numerical value, the system will use this value as the font size to load.
+  - **Array** - If the value is a comma-separated array, then the system will load the font at each of the given font sizes. _(ie. `14,18,32`)_
+
+**font#.is_jp** - _(boolean)_
+
+Defines if the font includes, and should load, Japanese glyphs. _(This value is optional, default is `false`.)_
+
+If the user wishes to use Japanese fonts with ImGui, this flag should be set to `true` with the desired font. Otherwise, it should be left off to avoid potential errors/issues trying to load fonts without the expected glyphs.
+
+Here are some examples of using this settings block to override the default font:
+
+**_Loading only NotoSans Japanese font._**
+```ini
+[ashita.imgui.fonts]
+font0.family = NotoSansCJKjp-Regular.otf
+font0.size   = 14
+font0.is_jp  = true
+```
+
+**_Loading two fonts. (Arial defaults to font size 18px.)_**
+```ini
+[ashita.imgui.fonts]
+font0.family = NotoSansCJKjp-Regular.otf
+font0.size   = 14
+font0.is_jp  = true
+font1.family = Arial.ttf
+```
+
+**_Loading two fonts with custom sizes._**
+```ini
+[ashita.imgui.fonts]
+font0.family = NotoSansCJKjp-Regular.otf
+font0.size   = 14
+font0.is_jp  = true
+font1.family = Arial.ttf
+font1.size   = 14,18,32
+```
+
+Players can also alter the default font only if they wish. As mentioned above, **Ashita** will automatically load and use the `Agave` font if no other fonts are defined in this section. There is a special case made for editing the default font. If you wish to edit the default fonts settings, you can define the font family as just `Agave` with no file extension. **Ashita** will specifically look for and treat this case for the default font.
+
+Here is an example of editing the default font. This will override the system to only load `Agave` at the font size `18` instead of the normal `18,24,32`:
+
+```ini
+[ashita.imgui.fonts]
+font0.family = Agave
+font0.size   = 18
+font0.is_jp  = false
+```
+
+_**Please note:** ImGui uses a single internal texture to hold the entire font map for all registered fonts. Because of this, it is possible to define too many fonts or use font sizes that are too large causing the texture to fail to be created. Please try and only define absolutely needed fonts here and use a realistic size that makes sense. It is also important to note; **Ashita** will internally add the FontAwesome glyph map to all fonts that are loaded into it!_
 
 ### Section: `[ashita.input]`
 
@@ -208,6 +244,33 @@ Contains configuration settings used with the various input devices to interact 
   - `mouse.unhook` - _(boolean)_
     - **Default:** 1
     - Sets if **Ashita** should unhook the mouse from being automatically repositioned by the game menu system.
+
+### Section: `[ashita.language]`
+
+Contains configuration settings used to determine which language data is used for defaults.
+
+  - `playonline` - _(number)_
+    - **Default:** 2
+    - Sets the default PlayOnline language the launcher will use when trying to launch retail and no direct boot file was given.
+    - _If set to 0, **Ashita** will default to English._
+    - Valid values are: `0 = Default`, `1 = Japanese`, `2 = English`, `3 = European`
+  - `ashita` - _(number)_
+    - **Default:** 2
+    - Sets the default language used with the internal ResourceManager string data.
+    - _If set to 0 or 3, **Ashita** will default to English. (SE no longer translates strings to European.)_
+    - Valid values are: `0 = Default`, `1 = Japanese`, `2 = English`, `3 = European`
+
+### Section: `[ashita.logging]`
+
+Contains configuration settings used for **Ashita**'s debugging/logging features.
+
+  - `level` - _(number)_
+    - **Default:** 5
+    - Sets the level of debugging information **Ashita** will output to its log files.
+    - Valid values are: `0 = None`, `1 = Critical`, `2 = Error`, `3 = Warn`, `4 = Info`, `5 = Debug`
+  - `crashdumps` - _(number)_
+    - **Default:** 1
+    - Sets if **Ashita** should create crash dumps automatically when a critical error occurs.
 
 ### Section: `[ashita.misc]`
 
@@ -255,6 +318,42 @@ sandbox = args1 args2 args3 args4
 ```
 
 _This would pass the string `args1 args2 args3 args4` to `Sandbox` when its loaded._
+
+### Section: `[ashita.resources]`
+
+Contains configuration settings used with **Ashita**'s custom resource data override configuration files.
+
+  - `offsets.use_overrides` - _(boolean)_
+    - **Default:** 1
+    - Sets if **Ashita** should load and merge in the custom overrides within the `custom.offsets.ini` configuration file.
+  - `pointers.use_overrides` - _(boolean)_
+    - **Default:** 1
+    - Sets if **Ashita** should load and merge in the custom overrides within the `custom.pointers.ini` configuration file.
+  - `resources.use_overrides` - _(boolean)_
+    - **Default:** 1
+    - Sets if **Ashita** should load and merge in the custom overrides within the `custom.datmap.ini` configuration file.
+
+### Section: `[ashita.taskpool]`
+
+Contains configuration settings used with **Ashita**'s internal task queue system.
+
+  - `threadcount` - _(number)_
+    - **Default**: -1
+    - Sets the maximum number of threads the task queue will attempt to use.
+    - _If set to 0 or lower, the internal task queue will query the system for the available number of logical cores and determine the best number of threads to use. It is recommended to leave this as -1 and let the system determine the best number itself._
+
+### Section: `[ashita.window.startpos]`
+
+Contains configuration settings used to set the startup position of the game window.
+
+  - `x` - _(number)_
+    - **Default:** -1
+    - Sets the X screen position to start the game window at.
+    - _If set to -1, will use the center X position of the screen._
+  - `y` - _(number)_
+    - **Default:** -1
+    - Sets the Y screen position to start the game window at.
+    - _If set to -1, will use the center Y position of the screen._
 
 ### Section: `[ffxi.direct3d8]`
 
@@ -480,12 +579,15 @@ Contains configuration settings used to override Final Fantasy XI's registry set
   - `0045` - _(number)_
     - **Default:** -1
     - Unknown / unused.
-  - `padmode000` - _(number)_
+  - `padmode000` - _(array)_
     - **Default:** -1
     - Sets the games gamepad configuration settings. _(See below for more information.)_
-  - `padsin000` - _(number)_
+  - `padsin000` - _(array)_
     - **Default:** -1
     - Sets the games gamepad button map settings. _(See below for more information.)_
+  - `padguid000` - _(string)_
+    - **Default:** -1
+    - Sets the games gamepad GUID that the client will attempt to automatically attach to. _(See below for more information.)_
 
 #### `padmode000`
 
@@ -535,6 +637,14 @@ The 27 slots are in the following order:
 | `24`  | Menu movement. (right) _(Also handles targeting.)_ |
 | `25`  | Take screenshot. _(Menu/windows must be hidden.)_ |
 | `26`  | Toggle use of movement, menu and camera controls. |
+
+#### `padguid000`
+
+The `padguid000` value is used to tell the client which gamepad device should be used when automatically detecting controller devices. This is a newer feature made available to the client which allows players to specifically connect to a desired controller instead of having the client automatically connect to the first one it finds, as it did before. This is useful for players who have multiple controllers connected to their machine, or have additional kinds of controllers or other input devices that identify as controllers (such as racing wheels) and want to only ever use a specific one with FFXI.
+
+This setting expects the raw GUID string of the controller device, in the normal format of: `{00000000-0000-0000-0000-000000000000}`
+
+_The included gamepad configuration tool that ships with Final Fantasy XI now has the ability to select the desired controller you wish to use._
 
 #### DirectInput Button Mappings
 
